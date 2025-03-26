@@ -3,6 +3,7 @@ import { ChangeEvent, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Upload, Image as ImageIcon, Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { toast } from "sonner";
 
 interface ImageUploaderProps {
   onImageUpload: (file: File) => void;
@@ -21,11 +22,30 @@ const ImageUploader = ({
 }: ImageUploaderProps) => {
   const [isDragging, setIsDragging] = useState(false);
 
+  const validateFile = (file: File) => {
+    const maxSize = 5 * 1024 * 1024; // 5MB
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+
+    if (!allowedTypes.includes(file.type)) {
+      toast.error('Please upload a valid image file (JPG, JPEG, or PNG)');
+      return false;
+    }
+
+    if (file.size > maxSize) {
+      toast.error('File size should be less than 5MB');
+      return false;
+    }
+
+    return true;
+  };
+
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
+    if (file && validateFile(file)) {
       onImageUpload(file);
     }
+    // Reset the input value so the same file can be uploaded again if needed
+    e.target.value = '';
   };
 
   const handleDragOver = (e: React.DragEvent) => {
@@ -33,7 +53,8 @@ const ImageUploader = ({
     setIsDragging(true);
   };
 
-  const handleDragLeave = () => {
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
     setIsDragging(false);
   };
 
@@ -41,7 +62,7 @@ const ImageUploader = ({
     e.preventDefault();
     setIsDragging(false);
     const file = e.dataTransfer.files?.[0];
-    if (file) {
+    if (file && validateFile(file)) {
       onImageUpload(file);
     }
   };
@@ -104,7 +125,7 @@ const ImageUploader = ({
               id={`file-upload-${label}`}
               type="file"
               className="hidden"
-              accept="image/*"
+              accept="image/png,image/jpeg,image/jpg"
               onChange={handleFileChange}
             />
           </div>
