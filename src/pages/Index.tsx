@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Gift, ChevronDown, ChevronUp, MoveRight } from "lucide-react";
+import { Gift, MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Template } from "@/components/TemplateSelector";
 import ImageUploader from "@/components/ImageUploader";
@@ -62,7 +62,6 @@ const Index = () => {
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(templates[0]);
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
-  const [showAdvanced, setShowAdvanced] = useState<boolean>(false);
 
   const handleProfileImageUpload = (file: File) => {
     const reader = new FileReader();
@@ -165,34 +164,21 @@ const Index = () => {
               <Separator />
 
               <div className="animate-fade-in" style={{ animationDelay: "0.5s" }}>
-                <Button
-                  variant="link"
-                  onClick={() => setShowAdvanced(!showAdvanced)}
-                  className="px-0 text-primary font-medium flex items-center"
-                >
-                  {showAdvanced ? (
-                    <ChevronUp className="h-4 w-4 mr-1" />
-                  ) : (
-                    <ChevronDown className="h-4 w-4 mr-1" />
-                  )}
-                  {showAdvanced ? "Hide" : "Show"} Advanced Options
-                </Button>
-
-                {showAdvanced && (
-                  <div className="mt-4 animate-fade-in">
-                    <TemplateSelector
-                      templates={templates}
-                      selectedTemplate={selectedTemplate}
-                      onSelectTemplate={setSelectedTemplate}
-                    />
-                  </div>
-                )}
+                <h2 className="text-xl font-semibold mb-4 flex items-center">
+                  <span className="w-6 h-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center mr-2">3</span>
+                  Choose a Template
+                </h2>
+                <TemplateSelector
+                  templates={templates}
+                  selectedTemplate={selectedTemplate}
+                  onSelectTemplate={setSelectedTemplate}
+                />
               </div>
             </div>
 
             <div>
               <h2 className="text-xl font-semibold mb-4 flex items-center">
-                <span className="w-6 h-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center mr-2">3</span>
+                <span className="w-6 h-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center mr-2">4</span>
                 Preview & Download
               </h2>
               <EditorCanvas
