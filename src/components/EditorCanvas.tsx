@@ -1,16 +1,13 @@
 
-import { useEffect, useRef, useState } from "react";
-import { Template } from "./TemplateSelector";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Share2, Download, RefreshCw } from "lucide-react";
-import { cn } from "@/lib/utils";
 import html2canvas from "html2canvas";
 import { toast } from "sonner";
 
 interface EditorCanvasProps {
   profileImage: string | null;
   qrCodeImage: string | null;
-  template: Template | null;
   phoneNumber: string;
   name: string;
 }
@@ -18,7 +15,6 @@ interface EditorCanvasProps {
 const EditorCanvas = ({
   profileImage,
   qrCodeImage,
-  template,
   phoneNumber,
   name,
 }: EditorCanvasProps) => {
@@ -128,34 +124,12 @@ const EditorCanvas = ({
     );
   }
 
-  const getBorderStyle = () => {
-    if (!template) return "border-8 border-eid-gold";
-    
-    switch (template.borderStyle) {
-      case 'gradient':
-        return "border-8 frame-gradient";
-      case 'dotted':
-        return "border-8 border-dotted border-eid-red";
-      case 'dashed':
-        return "border-8 border-dashed border-eid-green";
-      case 'double':
-        return "border-8 border-double border-eid-gold";
-      case 'template-border':
-        return "template-border";
-      default:
-        return `border-8 border-${template.borderColor}`;
-    }
-  };
-
   return (
     <div className="w-full flex flex-col items-center">
       <div className="mb-6 w-full max-w-md">
         <div 
           ref={canvasRef}
-          className={cn(
-            "w-full aspect-[3/4] rounded-lg overflow-hidden relative bg-white",
-            getBorderStyle()
-          )}
+          className="w-full aspect-[3/4] rounded-lg overflow-hidden relative bg-white border-8 border-eid-gold"
         >
           <div className="absolute inset-0 eid-pattern opacity-10"></div>
           

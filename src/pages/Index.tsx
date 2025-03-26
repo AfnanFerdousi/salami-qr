@@ -5,61 +5,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Gift, MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Template } from "@/components/TemplateSelector";
 import ImageUploader from "@/components/ImageUploader";
-import TemplateSelector from "@/components/TemplateSelector";
 import EditorCanvas from "@/components/EditorCanvas";
 import { toast } from "sonner";
-
-const templates: Template[] = [
-  {
-    id: "1",
-    name: "Gold Frame",
-    thumbnail: "/frames/gold-frame.png",
-    borderStyle: "solid",
-    borderColor: "eid-gold",
-  },
-  {
-    id: "2",
-    name: "Gradient Magic",
-    thumbnail: "/frames/gradient-frame.png",
-    borderStyle: "gradient",
-    borderColor: "",
-  },
-  {
-    id: "3",
-    name: "Eid Special",
-    thumbnail: "/frames/eid-frame.png",
-    borderStyle: "template-border",
-    borderColor: "",
-  },
-  {
-    id: "4",
-    name: "Red Dotted",
-    thumbnail: "/frames/red-frame.png",
-    borderStyle: "dotted",
-    borderColor: "eid-red",
-  },
-  {
-    id: "5",
-    name: "Green Dashed",
-    thumbnail: "/frames/green-frame.png",
-    borderStyle: "dashed",
-    borderColor: "eid-green",
-  },
-  {
-    id: "6",
-    name: "Double Gold",
-    thumbnail: "/frames/double-frame.png",
-    borderStyle: "double",
-    borderColor: "eid-gold",
-  },
-];
 
 const Index = () => {
   const [profileImage, setProfileImage] = useState<string | null>(null);
   const [qrCodeImage, setQrCodeImage] = useState<string | null>(null);
-  const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(templates[0]);
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
 
@@ -160,31 +112,16 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-
-              <Separator />
-
-              <div className="animate-fade-in" style={{ animationDelay: "0.5s" }}>
-                <h2 className="text-xl font-semibold mb-4 flex items-center">
-                  <span className="w-6 h-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center mr-2">3</span>
-                  Choose a Template
-                </h2>
-                <TemplateSelector
-                  templates={templates}
-                  selectedTemplate={selectedTemplate}
-                  onSelectTemplate={setSelectedTemplate}
-                />
-              </div>
             </div>
 
             <div>
               <h2 className="text-xl font-semibold mb-4 flex items-center">
-                <span className="w-6 h-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center mr-2">4</span>
+                <span className="w-6 h-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center mr-2">3</span>
                 Preview & Download
               </h2>
               <EditorCanvas
                 profileImage={profileImage}
                 qrCodeImage={qrCodeImage}
-                template={selectedTemplate}
                 phoneNumber={phoneNumber}
                 name={name}
               />
