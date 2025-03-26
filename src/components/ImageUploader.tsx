@@ -1,5 +1,5 @@
 
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Upload, Image as ImageIcon, Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -9,7 +9,7 @@ interface ImageUploaderProps {
   onImageUpload: (file: File) => void;
   label: string;
   className?: string;
-  previewUrl?: string;
+  previewUrl?: string | null;
   onRemove?: () => void;
 }
 
@@ -21,6 +21,7 @@ const ImageUploader = ({
   onRemove,
 }: ImageUploaderProps) => {
   const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const validateFile = (file: File) => {
     const maxSize = 5 * 1024 * 1024; // 5MB
@@ -46,6 +47,10 @@ const ImageUploader = ({
     }
     // Reset the input value so the same file can be uploaded again if needed
     e.target.value = '';
+  };
+
+  const handleButtonClick = () => {
+    fileInputRef.current?.click();
   };
 
   const handleDragOver = (e: React.DragEvent) => {
@@ -111,17 +116,17 @@ const ImageUploader = ({
             PNG, JPG or JPEG (max 5MB)
           </p>
           <div>
-            <label htmlFor={`file-upload-${label}`}>
-              <Button
-                size="sm"
-                type="button"
-                className="cursor-pointer"
-                variant="secondary"
-              >
-                <Upload className="h-4 w-4 mr-2" /> Upload
-              </Button>
-            </label>
+            <Button
+              size="sm"
+              type="button"
+              className="cursor-pointer"
+              variant="secondary"
+              onClick={handleButtonClick}
+            >
+              <Upload className="h-4 w-4 mr-2" /> Upload
+            </Button>
             <input
+              ref={fileInputRef}
               id={`file-upload-${label}`}
               type="file"
               className="hidden"
