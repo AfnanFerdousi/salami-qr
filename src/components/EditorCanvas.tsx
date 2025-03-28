@@ -143,7 +143,7 @@ const EditorCanvas = ({
             <div className="flex items-center justify-center mb-2">
               <div className="bg-white px-5 py-2 rounded-full shadow-md border border-eid-gold/30">
                 <img 
-                  src="public/lovable-uploads/2a98657a-47ed-43f6-a605-5d1874176625.png" 
+                  src="/lovable-uploads/bkash.png" 
                   alt="bKash Logo" 
                   className="h-10 object-contain"
                 />
@@ -157,7 +157,7 @@ const EditorCanvas = ({
             </p>
             <div className="flex justify-center">
               <div className="px-3 py-1 bg-bkash text-white text-xs font-medium tracking-wide rounded-full shadow-md">
-                Send Eid Salami with bKash
+                Send Eid Salami, Earn Love 
               </div>
             </div>
           </div>
