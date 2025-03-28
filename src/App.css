@@ -31,6 +31,18 @@
   }
 }
 
+.canvas-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 340px) {
+  .canvas-container {
+    --scale-factor: calc((100vw - 2rem) / 316); /* 316px = 300px width + 16px border */
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;

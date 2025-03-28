@@ -52,10 +52,10 @@ const Index = () => {
           <Gift className="h-4 w-4 inline-block mr-2" /> Eid Mubarak 1445
         </div>
         <h1 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-eid-gold via-eid-red to-eid-green bg-clip-text text-transparent playfair animate-fade-in" style={{ animationDelay: "0.1s" }}>
-          Eid QR Creator
+          সালামি ব্যাঙ্ক
         </h1>
         <p className="text-muted-foreground max-w-md mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>
-          Create your personalized Eid QR code card to receive Salami digitally through bKash
+          সালামি ব্যাঙ্ক - সালামি দেন, সওয়াব কামান
         </p>
       </header>
 
