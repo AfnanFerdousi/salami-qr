@@ -143,7 +143,7 @@ const EditorCanvas = ({
             <div className="flex items-center justify-center mb-2">
               <div className="bg-white px-5 py-2 rounded-full shadow-md border border-eid-gold/30">
                 <img 
-                  src="https://upload.wikimedia.org/wikipedia/commons/5/57/BKash_logo.png" 
+                  src="public/lovable-uploads/2a98657a-47ed-43f6-a605-5d1874176625.png" 
                   alt="bKash Logo" 
                   className="h-10 object-contain"
                 />
@@ -152,6 +152,9 @@ const EditorCanvas = ({
             <h1 className="text-xl md:text-2xl font-bold text-eid-gold playfair mb-1">
               Eid Mubarak
             </h1>
+            <p className="text-xs text-eid-green italic mb-1 px-3">
+              Taqabbalallahu Minna Wa Minkum
+            </p>
             <div className="flex justify-center">
               <div className="px-3 py-1 bg-bkash text-white text-xs font-medium tracking-wide rounded-full shadow-md">
                 Send Eid Salami with bKash
@@ -172,7 +175,7 @@ const EditorCanvas = ({
           
           {/* Profile Image - Moved to the side */}
           {profileImage && (
-            <div className="absolute bottom-20 right-4 w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-lg">
+            <div className="absolute bottom-24 right-4 w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-lg">
               <img
                 src={profileImage}
                 alt="Profile"
@@ -182,8 +185,8 @@ const EditorCanvas = ({
           )}
           
           {/* Phone number - Made more visible */}
-          <div className="absolute bottom-12 left-0 right-0 text-center">
-            <div className="bg-white/80 mx-auto max-w-[80%] py-2 px-4 rounded-full border border-eid-gold/30 shadow-md">
+          <div className="absolute bottom-8 left-0 right-0 text-center">
+            <div className="bg-white/90 mx-auto max-w-[85%] py-2 px-4 rounded-full border border-eid-gold/30 shadow-md">
               <p className="font-bold text-bkash text-lg">
                 {phoneNumber || "+880 1X XXX XXX XX"}
               </p>
