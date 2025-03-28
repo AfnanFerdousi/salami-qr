@@ -4,6 +4,10 @@
   padding: 2rem;
   text-align: center;
 }
+* {
+  border: none !important;
+  box-shadow: none !important;
+}
 
 .logo {
   height: 6em;

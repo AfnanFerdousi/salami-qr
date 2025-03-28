@@ -180,7 +180,7 @@ const Index = () => {
 
       <footer className="py-6 border-t">
         <div className="container mx-auto text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Eid QR Creator. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Eid QR Creator. All rights reserved by <a className="underline text-bkash" href="https://www.linkedin.com/in/afnanferdousi550/" target="_blank">Afnan</a></p>
           <p className="mt-1">Made with ❤️ for Eid ul-Fitr</p>
         </div>
       </footer>
