@@ -131,22 +131,29 @@ const EditorCanvas = ({
           ref={canvasRef}
           className="w-full aspect-[3/4] rounded-lg overflow-hidden relative bg-white border-8 border-eid-gold"
         >
-          <div className="absolute inset-0 eid-pattern opacity-10"></div>
+          {/* Festive background pattern */}
+          <div className="absolute inset-0 bg-eid-cream eid-pattern opacity-10"></div>
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-eid-gold/10 rounded-full -mr-8 -mt-8"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-eid-red/10 rounded-full -ml-10 -mb-10"></div>
+          </div>
           
           {/* Header */}
           <div className="absolute top-0 left-0 right-0 p-4 text-center">
-            <div className="mb-1">
-              <img 
-                src="/lovable-uploads/2734a1c5-9993-4d38-a06b-a93c51dc9fe4.png" 
-                alt="bKash and Nagad" 
-                className="h-12 object-contain mx-auto mb-2"
-              />
+            <div className="flex items-center justify-center mb-2">
+              <div className="bg-eid-gold/10 px-4 py-2 rounded-full">
+                <img 
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/57/BKash_logo.png" 
+                  alt="bKash Logo" 
+                  className="h-8 object-contain"
+                />
+              </div>
             </div>
             <h1 className="text-xl md:text-2xl font-bold text-eid-gold playfair mb-1">
               Eid Mubarak
             </h1>
             <div className="flex justify-center">
-              <div className="px-3 py-1 bg-eid-red/90 rounded-full text-white text-xs font-medium tracking-wide transform -rotate-2 animate-float">
+              <div className="px-3 py-1 bg-bkash text-white text-xs font-medium tracking-wide rounded-full shadow-md">
                 Send Eid Salami with bKash
               </div>
             </div>
@@ -178,7 +185,7 @@ const EditorCanvas = ({
           
           {/* Phone number */}
           <div className="absolute bottom-4 left-0 right-0 text-center">
-            <p className="font-bold text-eid-red text-lg truncate px-4">
+            <p className="font-bold text-bkash text-lg truncate px-4">
               {phoneNumber || "+880 1X XXX XXX XX"}
             </p>
             <p className="text-sm text-eid-green font-medium truncate px-4">
@@ -186,14 +193,14 @@ const EditorCanvas = ({
             </p>
           </div>
           
-          {/* Decoration - Crescent */}
-          <div className="absolute top-20 right-4 text-eid-gold opacity-50">
+          {/* Decoration elements */}
+          <div className="absolute top-16 right-4 text-eid-gold opacity-70">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C12.36 22 12.72 21.97 13.08 21.93C10.11 20.97 8 17.76 8 14C8 10.24 10.11 7.03 13.08 6.07C12.72 6.03 12.36 6 12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
           
-          {/* Decoration - Stars */}
+          {/* Festive stars */}
           <div className="absolute top-24 right-10 text-eid-gold opacity-70 animate-float">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
@@ -206,13 +213,20 @@ const EditorCanvas = ({
             </svg>
           </div>
 
-          {/* Lantern decorations */}
-          <div className="absolute top-20 left-2 opacity-80 animate-float" style={{ animationDelay: "0.7s" }}>
+          {/* More decorative elements */}
+          <div className="absolute top-20 left-2 text-eid-red opacity-80 animate-float" style={{ animationDelay: "0.7s" }}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9.02 2.84L9.93 3.75M14.98 2.84L14.07 3.75M12 2V3M7.5 5.75C7.5 5.75 8 7.5 12 7.5C16 7.5 16.5 5.75 16.5 5.75M18 12H17.5M18.5 9H18M19 15H18.5M6 12H6.5M5.5 9H6M5 15H5.5" stroke="#E94560" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M14.5 13.5V20.5M9.5 13.5V20.5M8 22H16M14.5 10.5C14.5 12.1569 13.3807 13.5 12 13.5C10.6193 13.5 9.5 12.1569 9.5 10.5C9.5 8.84315 10.6193 7.5 12 7.5C13.3807 7.5 14.5 8.84315 14.5 10.5Z" stroke="#E94560" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M9.02 2.84L9.93 3.75M14.98 2.84L14.07 3.75M12 2V3M7.5 5.75C7.5 5.75 8 7.5 12 7.5C16 7.5 16.5 5.75 16.5 5.75M18 12H17.5M18.5 9H18M19 15H18.5M6 12H6.5M5.5 9H6M5 15H5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M14.5 13.5V20.5M9.5 13.5V20.5M8 22H16M14.5 10.5C14.5 12.1569 13.3807 13.5 12 13.5C10.6193 13.5 9.5 12.1569 9.5 10.5C9.5 8.84315 10.6193 7.5 12 7.5C13.3807 7.5 14.5 8.84315 14.5 10.5Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
+          
+          {/* Festive confetti decorations */}
+          <div className="absolute top-40 right-12 h-2 w-2 bg-eid-green rounded-full opacity-40"></div>
+          <div className="absolute top-48 right-6 h-1.5 w-1.5 bg-eid-red rounded-full opacity-30"></div>
+          <div className="absolute top-52 right-14 h-1 w-2 bg-eid-gold rounded-full opacity-50"></div>
+          <div className="absolute bottom-32 left-6 h-2 w-2 bg-eid-gold rounded-full opacity-40"></div>
+          <div className="absolute bottom-28 left-10 h-1 w-1 bg-eid-red rounded-full opacity-30"></div>
         </div>
       </div>
 
