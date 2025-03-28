@@ -141,11 +141,11 @@ const EditorCanvas = ({
           {/* Header */}
           <div className="absolute top-0 left-0 right-0 p-4 text-center">
             <div className="flex items-center justify-center mb-2">
-              <div className="bg-eid-gold/10 px-4 py-2 rounded-full">
+              <div className="bg-white px-5 py-2 rounded-full shadow-md border border-eid-gold/30">
                 <img 
                   src="https://upload.wikimedia.org/wikipedia/commons/5/57/BKash_logo.png" 
                   alt="bKash Logo" 
-                  className="h-8 object-contain"
+                  className="h-10 object-contain"
                 />
               </div>
             </div>
@@ -159,22 +159,9 @@ const EditorCanvas = ({
             </div>
           </div>
           
-          {/* Profile Image */}
-          {profileImage && (
-            <div className="absolute bottom-20 right-4 left-4 flex justify-center">
-              <div className="w-3/4 aspect-square rounded-xl overflow-hidden border-4 border-white shadow-lg">
-                <img
-                  src={profileImage}
-                  alt="Profile"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          )}
-          
-          {/* QR Code */}
+          {/* QR Code - Made more prominent */}
           {qrCodeImage && (
-            <div className="absolute top-36 left-4 w-36 h-36 bg-white p-2 rounded-lg shadow-lg border-2 border-bkash">
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-52 h-52 bg-white p-3 rounded-lg shadow-lg border-2 border-bkash flex items-center justify-center">
               <img
                 src={qrCodeImage}
                 alt="QR Code"
@@ -183,14 +170,27 @@ const EditorCanvas = ({
             </div>
           )}
           
-          {/* Phone number */}
-          <div className="absolute bottom-4 left-0 right-0 text-center">
-            <p className="font-bold text-bkash text-lg truncate px-4">
-              {phoneNumber || "+880 1X XXX XXX XX"}
-            </p>
-            <p className="text-sm text-eid-green font-medium truncate px-4">
-              {name || "Your Name"}
-            </p>
+          {/* Profile Image - Moved to the side */}
+          {profileImage && (
+            <div className="absolute bottom-20 right-4 w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-lg">
+              <img
+                src={profileImage}
+                alt="Profile"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          )}
+          
+          {/* Phone number - Made more visible */}
+          <div className="absolute bottom-12 left-0 right-0 text-center">
+            <div className="bg-white/80 mx-auto max-w-[80%] py-2 px-4 rounded-full border border-eid-gold/30 shadow-md">
+              <p className="font-bold text-bkash text-lg">
+                {phoneNumber || "+880 1X XXX XXX XX"}
+              </p>
+              <p className="text-sm text-eid-green font-medium">
+                {name || "Your Name"}
+              </p>
+            </div>
           </div>
           
           {/* Decoration elements */}
@@ -200,7 +200,7 @@ const EditorCanvas = ({
             </svg>
           </div>
           
-          {/* Festive stars */}
+          {/* Festive elements */}
           <div className="absolute top-24 right-10 text-eid-gold opacity-70 animate-float">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
